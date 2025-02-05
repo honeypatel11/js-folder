@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+</head>
+
+<body>
+    <form action="" id="form">
+        <div class="container">
+            <h1 class=" text-center my-4">Form Validation :- </h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="name">Name :-</label>
+                    <input type="text" name="name" id="name" class="my-4  form-control">
+                </div>
+                <div class="col-md-6 ">
+                    <label for="mail">Email :-</label>
+                    <input type="email" name="mail" id="mail" class="my-4  form-control">
+                </div>
+                <div class="col-md-6 ">
+                    <label for="pass">Password :-</label>
+                    <input type="password" name="pass" id="pass" class="my-4  form-control">
+                </div>
+                <div class="col-md-6 ">
+                    <label for="c-pass">Confim Password :-</label>
+                    <input type="password" name="c-pass" id="cpass" class="my-4 form-control">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success" id="sub"> Submit </button>
+        </div>
+    </form>
+
+    <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function () {
+            let nameEl = document.getElementById("name");
+            let mailEl = document.getElementById("mail");
+            let passEl = document.getElementById("pass");
+            let cpassEl = document.getElementById("cpass");
+            let form = document.getElementById("form");
+
+
+            $("#sub").on("click", function (e) {
+                e.preventDefault()
+                if (nameEl.value.trim() == "") {
+                    Swal.fire("Name Is Required...");
+                    return;
+                }
+
+                if (mailEl.value.trim() == "") {
+                    Swal.fire("Email Is Required...");
+                    return;
+                }
+
+                if (passEl.value.trim() == "" || cpassEl.value.trim() == "") {
+                    Swal.fire("Password / Confirm Password Is Required...");
+                    return;
+                } else if (passEl.value.length < 8) {
+                    Swal.fire("Password should be 8 character...");
+                    return;
+
+                } else if (passEl.value != cpassEl.value){
+                    Swal.fire("Password should be Not Match...");
+                    return;
+                }
+                   
+                Swal.fire({
+                    title: "Do you want to save the changes?",
+                    showDenyButton: true,
+                    showCancelButton: true,
+                    confirmButtonText: "Save",
+                    denyButtonText: `Don't save`
+                }).then(() => {
+                    form.submit()
+                });
+
+
+            })
+
+        })
+
+
+
+
+
+    </script>
+</body>
+
+</html>
