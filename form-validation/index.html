@@ -5,34 +5,60 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
     <link href="./assets/css/bootstrap.css" rel="stylesheet">
 </head>
 
 <body>
-    <form action="" id="form">
-        <div class="container">
-            <h1 class=" text-center my-4">Form Validation :- </h1>
-            <div class="row">
-                <div class="col-md-6">
-                    <label for="name">Name :-</label>
-                    <input type="text" name="name" id="name" class="my-4  form-control">
+    <section class="vh-100 d-flex">
+        <div class="m-auto">
+            <form action="" id="form">
+                <div class="container">
+                    <div class="row glass">
+                        <h1 class=" text-center my-4 text- fw-bold ">Form Validation :- </h1>
+                        <div class="col-md-6">
+                            <label for="name" class="fw-bold text-dark fs-5">Name :-</label>
+                            <input type="text" name="name" id="name" class="my-4  form-control"
+                                placeholder="Enter Your Name">
+                        </div>
+                        <div class="col-md-6 ">
+                            <label for="mail" class="fw-bold text-dark fs-5">Email :-</label>
+                            <input type="email" name="mail" id="mail" class="my-4  form-control"
+                                placeholder="Enter Your Email">
+                        </div>
+
+                        <div class="col-md-6 ">
+                            <label for="Contact" class="fw-bold text-dark fs-5">Contact :-</label>
+                            <input type="Contact" name="Contact" id="Contact" class="my-4  form-control"
+                                placeholder="Enter Your Contact">
+                        </div>
+
+                        <div class="col-md-6 ">
+                            <label for="Grid" class="fw-bold text-dark fs-5">GR Id :-</label>
+                            <input type="Grid" name="Grid" id="Grid" class="my-4  form-control"
+                                placeholder="Enter Your Grid">
+                        </div>
+                        <div class="col-md-6 ">
+                            <label for="pass" class="fw-bold text-dark fs-5">Password :-</label>
+                            <input type="password" name="pass" id="pass" class="my-4  form-control"
+                                placeholder="Enter Your Password">
+                        </div>
+
+
+                        <div class="col-md-6 ">
+                            <label for="c-pass" class="fw-bold text-dark fs-5">Confim Password :-</label>
+                            <input type="password" name="c-pass" id="cpass" class="my-4 form-control"
+                                placeholder="Enter Your Password">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success my-4 text-white fw-bold fs-5" id="sub"> Submit
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6 ">
-                    <label for="mail">Email :-</label>
-                    <input type="email" name="mail" id="mail" class="my-4  form-control">
-                </div>
-                <div class="col-md-6 ">
-                    <label for="pass">Password :-</label>
-                    <input type="password" name="pass" id="pass" class="my-4  form-control">
-                </div>
-                <div class="col-md-6 ">
-                    <label for="c-pass">Confim Password :-</label>
-                    <input type="password" name="c-pass" id="cpass" class="my-4 form-control">
-                </div>
-            </div>
-            <button type="submit" class="btn btn-success" id="sub"> Submit </button>
+            </form>
         </div>
-    </form>
+    </section>
 
     <script src="./assets/js/jquery.js"></script>
     <script src="./assets/js/index.js"></script>
@@ -41,6 +67,8 @@
         $(document).ready(function () {
             let nameEl = document.getElementById("name");
             let mailEl = document.getElementById("mail");
+            let contactEl = document.getElementById("Contact");
+            let GridEl = document.getElementById("Grid");
             let passEl = document.getElementById("pass");
             let cpassEl = document.getElementById("cpass");
             let form = document.getElementById("form");
@@ -57,32 +85,64 @@
                     Swal.fire("Email Is Required...");
                     return;
                 }
-
-                if (passEl.value.trim() == "" || cpassEl.value.trim() == "") {
-                    Swal.fire("Password / Confirm Password Is Required...");
+                if (contactEl.value.trim() == "") {
+                    Swal.fire("Contact Is Required...");
                     return;
-                } else if (passEl.value.length < 8) {
-                    Swal.fire("Password should be 8 character...");
-                    return;
-
-                } else if (passEl.value != cpassEl.value){
-                    Swal.fire("Password should be Not Match...");
+                } else if (contactEl.value.length !== 10) {
+                    Swal.fire("contact should be 10 digit...");
                     return;
                 }
-                   
-                Swal.fire({
-                    title: "Do you want to save the changes?",
-                    showDenyButton: true,
-                    showCancelButton: true,
-                    confirmButtonText: "Save",
-                    denyButtonText: `Don't save`
-                }).then(() => {
-                    form.submit()
-                });
+                    if (GridEl.value.trim() == "") {
+                        Swal.fire("GRID Is Required...");
+                        return;
+                    }
+                    else if (GridEl.value.length != 4) {
+                        Swal.fire("GRID should be 4 Digit...");
+                        return;
 
+                    }
+
+                    if (passEl.value.trim() == "" || cpassEl.value.trim() == "") {
+                        Swal.fire("Password / Confirm Password Is Required...");
+                        return;
+                    } else if (passEl.value.length < 8) {
+                        Swal.fire("Password should be 8 character...");
+                        return;
+
+                    } else if (passEl.value != cpassEl.value) {
+                        Swal.fire("Password should be Not Match...");
+                        return;
+                    }
+
+                    Swal.fire({
+                        icon: "success",
+                        title: "Form Submitted Successfully !",
+                        showClass: {
+                            popup: `
+                        animate__animated
+                        animate__fadeInUp
+                        animate__faster
+                     `
+                        },
+                        hideClass: {
+                            popup: `
+                    animate__animated
+                    animate__fadeOutDown
+                    animate__faster
+                    `
+                        }
+                    }).then(() => {
+                        form.submit()
+
+                    });
+
+
+
+
+
+                
 
             })
-
         })
 
 
