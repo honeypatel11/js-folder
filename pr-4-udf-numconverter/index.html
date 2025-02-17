@@ -54,6 +54,7 @@
 
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./assets/js/jquery.js"></script>
 
     <script>
@@ -67,6 +68,30 @@
                 let u2 = parseInt(unit2.value);
                 let num = parseInt(inputnum.value);
 
+                if (inputnum.value == "") {
+                    Swal.fire({
+                        text: "Enter Number !",
+                        icon: "warning",
+                    });
+                    return;
+                }
+              
+
+                if (unit1.value === "" || unit2.value === "") {
+                    Swal.fire({
+                        text: "Select A Valid Unit To Convert !",
+                        icon: "warning",
+                    });
+                    return;
+                }   
+
+                if(unit1.value == unit2.value){
+                    Swal.fire({
+                        text: "Same Unit Cannot Be Selected !",
+                        icon: "warning",
+                    });
+                    return;
+                }
 
                 let Decimal = parseInt(num, 10);
                 let Converter = 0;
