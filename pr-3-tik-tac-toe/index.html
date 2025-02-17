@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tik-tac-toe</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+   <link rel="stylesheet" href="./assets/css/bootstrap.css">
+</head>
+<body class="bg-img">
+    <div class="game-box">
+        <div>
+            <h1 class="text-center text-white">Tic Tac Toe</h1>
+        </div>
+        <div class="board ">
+            <div class="info-box flex justify-content-center">
+                <button class="tile" id="t1"></button>
+                <button class="tile" id="t2"></button>
+                <button class="tile" id="t3"></button>
+            </div>
+            <div class="info-box flex p-20 justify-content-center">
+                <button class="tile" id="t4"></button>
+                <button class="tile" id="t5"></button>
+                <button class="tile" id="t6"></button>
+            </div>
+            <div class="info-box flex p-20 justify-content-center">
+                <button class="tile" id="t7"></button>
+                <button class="tile" id="t8"></button>
+                <button class="tile" id="t9"></button>
+            </div>
+        </div>
+        <div class="info">
+            <div class="text-center">
+                <button id="reset" class="text-black fw-bolder" >Reset Game</button>
+                <div class="leaderboard text-dark">
+                  <p class="fs-3"><strong>Leaderboard:</strong></p>
+                  <p class="fs-5">X Wins : <span  id="xWins">0</span></p>
+                  <p class="fs-5">O Wins : <span  id="oWins">0</span></p>
+                </div>
+            </div>
+          </div>
+    </div>
+    <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script>
+        let count = 0;
+        let xcount = 0;
+        let ocount = 0
+
+        function clear(){
+            for(let i = 1 ; i <= 9; i++){
+                document.getElementById(`t${i}`).innerHTML = "";
+            }
+        }
+
+        function win(val){
+            Swal.fire({
+                title: `${val} won the Match !`,
+                icon: "success",
+                backdrop: false,
+            });
+
+            if(val == "X"){
+                xcount++;
+                document.getElementById("xWins").innerHTML = xcount;
+            }else{
+                ocount++;
+                document.getElementById("oWins").innerHTML = ocount;
+            }
+        }
+
+
+        function checkwin(val){
+
+          
+
+            let winflag = true
+            for(let i = 1; i <= 3; i++){
+                let symbol = document.getElementById(`t${i}`).innerHTML;
+
+
+                if(symbol != val){
+                    winflag = false;
+                    break;
+                }
+            }
+            if(winflag){
+                win(val);
+                return true;
+            }
+
+            winflag = true
+            for(let i = 4; i <= 6; i++){
+                let symbol = document.getElementById(`t${i}`).innerHTML;
+
+                if(symbol != val){
+                    winflag = false;
+                    break;
+                }
+            }
+            if(winflag){
+                win(val);
+                return true;
+            }
+
+            winflag = true
+            for(let i = 7; i <= 9; i++){
+                let symbol = document.getElementById(`t${i}`).innerHTML;
+
+                if(symbol != val){
+                    winflag = false;
+                    break;
+                }
+            }
+            if(winflag){
+                win(val);
+                return true;
+            }
+
+
+          
+            winflag = true
+            for(let i = 1; i <= 7; i+=3){
+                let symbol = document.getElementById(`t${i}`).innerHTML;
+    
+                if(symbol != val){
+                    winflag = false;
+                    break;
+                }
+            }
+            if(winflag){
+                win(val);
+                return true;
+            }
+
+            winflag = true
+            for(let i = 2; i <= 8; i+=3){
+                let symbol = document.getElementById(`t${i}`).innerHTML;
+    
+                if(symbol != val){
+                    winflag = false;
+                    break;
+                }
+            }
+            if(winflag){
+                win(val);
+                return true;
+            }
+
+            winflag = true
+            for(let i = 3; i <= 9; i+=3){
+                let symbol = document.getElementById(`t${i}`).innerHTML;
+    
+                if(symbol != val){
+                    winflag = false;
+                    break;
+                }
+            }
+            if(winflag){
+                win(val);
+                return true;
+            }
+
+            // diagonal....
+            winflag = true 
+            for(let i = 1; i <= 9; i+=4){
+                let symbol = document.getElementById(`t${i}`).innerHTML;
+    
+                if(symbol != val){
+                    winflag = false;
+                    break;
+                }
+            }
+            if(winflag){
+                win(val);
+                return true;
+            }
+
+            winflag = true 
+            for(let i = 3; i <= 7; i+=2){
+                let symbol = document.getElementById(`t${i}`).innerHTML;
+    
+                if(symbol != val){
+                    winflag = false;
+                    break;
+                }
+            }
+            if(winflag){
+                win(val);
+                return true;
+            }
+        }
+
+        
+        $(document).ready(function(){
+            $(".tile").on("click", function(){
+                console.log(this)
+                let tile = $(this)[0];
+
+                if(tile.innerHTML == ""){
+                    if(count % 2 == 0){
+                        tile.innerHTML = "X";
+                    }else{
+                        tile.innerHTML = "O";
+                    }
+                    count++;
+                } else{
+                    Swal.fire({
+                        text: "Do not Overwrite...",
+                        icon: "Error",
+                        backdrop: false,
+                    }); 
+                }
+
+                // console.log(tile.innerHTML);
+                if(count >= 5){
+                    let win = checkwin(tile.innerHTML);
+                    // console.log(win);
+                    if(win){
+                        count = 0;
+                        clear();
+                    }
+                }
+                if( count == 9){
+                    Swal.fire({
+                        text: "match draw..",
+                        icon: "warning",
+                        backdrop: false,
+                    }); 
+
+                    count = 0
+                    clear();
+                }
+            })
+
+            $("#reset").on("click", function(){
+                clear();
+                xcount = 0;
+                ocount = 0;
+                document.getElementById("xWins").innerHTML = xcount;
+                document.getElementById("oWins").innerHTML = ocount;
+            })
+        })
+    </script>
+</body>
+</html>

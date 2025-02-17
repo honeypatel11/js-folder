@@ -14,40 +14,16 @@
     -webkit-backdrop-filter: blur( 4.5px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+    background-color: #598582;
+ 
 }
 .bg{
-    background-image: url('../images/pexels-valeriiamiller-2555642.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
+    background-image: url('../images/glass-wall-frame-transparent-showcase-with-light_107791-912.avif');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
-/* .input{
-    border-radius: 10px;
-    border: 1px solid rgb(22, 20, 77);
-    padding: 7px 7px;
-    font-size: 20px;
-    color: #fff;
-    font-weight: bold;
-    background-color: rgb(71, 50, 104);
+input:focus,select:focus,button:focus{
+    border: none !important;
+    box-shadow: none !important;
 }
-.input1{
-    border-radius: 7px;
-    padding: 7px 7px;
-    font-size: 20px;
-  
-   
-
-} */
- .btn1{
-    color: rgb(138, 43, 226);
-    background-color: rgb(189, 119, 189);
-    font-size: 20px;
-    border-radius: 10px;
-    padding: 8px 7px;
-    font-weight: bold;
-    transition: 0.5s all linear;
- }
- .btn1:hover{
-    color:  rgb(189, 119, 189);
-    background-color:  rgb(138, 43, 226); 
- }
