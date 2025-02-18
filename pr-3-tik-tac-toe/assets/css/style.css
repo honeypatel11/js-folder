@@ -11,7 +11,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(221, 219, 219);
+    background-color: rgb(210, 199, 199);
 }
 .bg-img{
     background-image: url('../img/img/360_F_461470323_6TMQSkCCs9XQoTtyer8VCsFypxwRiDGU.jpg');
@@ -30,10 +30,12 @@ body{
 .board{
     height: 400px;
     width: 400px;
-    border-radius: 20px;  
+    /* border-radius: 70px;   */
+   
 }
 .info-box{
   gap: 10px;
+
 }
 .tile{
     width: 120px;

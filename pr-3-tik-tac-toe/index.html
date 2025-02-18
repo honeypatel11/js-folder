@@ -50,7 +50,7 @@
         let ocount = 0
 
         function clear(){
-        
+        count = 0;
             for(let i = 1 ; i <= 9; i++){
                 document.getElementById(`t${i}`).innerHTML = "";
             }
@@ -74,8 +74,6 @@
 
 
         function checkwin(val){
-
-          
 
             let winflag = true
             for(let i = 1; i <= 3; i++){
@@ -187,11 +185,13 @@
                     winflag = false;
                     break;
                 }
+              
             }
             if(winflag){
                 win(val);
                 return true;
             }
+          
         }
 
         
@@ -238,8 +238,6 @@
 
             $("#reset").on("click", function(){
                 clear();
-                xcount = 0;
-                ocount = 0;
                 document.getElementById("xWins").innerHTML = xcount;
                 document.getElementById("oWins").innerHTML = ocount;
             })
