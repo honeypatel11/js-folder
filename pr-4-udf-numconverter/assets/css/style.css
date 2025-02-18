@@ -15,6 +15,7 @@
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     background-color: #598582;
+   
  
 }
 .bg{
@@ -22,6 +23,8 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    position: relative;
+  
 }
 input:focus,select:focus,button:focus{
     border: none !important;
