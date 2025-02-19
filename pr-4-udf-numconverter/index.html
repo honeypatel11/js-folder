@@ -95,6 +95,51 @@
                     return;
                 }
 
+                    switch (u1) {
+                case 2: 
+                    if (!/^[01]+$/.test(num)) {
+                        Swal.fire({
+                            icon: "error",
+                            text: "Enter a valid binary number (only 0s and 1s).",
+                        });
+                        return;
+                    }
+                    break;
+                case 8: 
+                    if (!/^[0-7]+$/.test(num)) {
+                        Swal.fire({
+                            icon: "error",
+                            text: "Enter a valid octal number (digits from 0 to 7).",
+                        });
+                        return;
+                    }
+                    break;
+                case 10: 
+                    if (!/^\d+$/.test(num)) {
+                        Swal.fire({
+                            icon: "error",
+                            text: "Enter a valid decimal number (only digits).",
+                        });
+                        return;
+                    }
+                    break;
+                case 16:
+                    if (!/^[0-9A-Fa-f]+$/.test(num)) {
+                        Swal.fire({
+                            icon: "error",
+                            text: "Enter a valid hexadecimal number (digits 0-9 and A-F).",
+                        });
+                        return;
+                    }
+                    break;
+                default:
+                    Swal.fire({
+                        icon: "error",
+                        text: "Invalid number type selected.",
+                    });
+                    return;
+               }
+
                 let Decimal = parseInt(num, 10);
                 let Converter = 0;
 
