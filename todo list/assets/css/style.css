@@ -1,0 +1,44 @@
+
+body {
+    background: #121212;
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+.todo-container {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+.btn-custom {
+    background-color: #ffcc00;
+    color: black;
+    border: none;
+    font-weight: bold;
+}
+.btn-custom:hover {
+    background-color: #ff9900;
+    color: white;
+}
+.task-item {
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.task-item.low {
+    background: linear-gradient(to right, #4caf50, #81c784); /* Green gradient */
+}
+.task-item.medium {
+    background: linear-gradient(to right, #ff9800, #ffb74d); /* Orange gradient */
+}
+.task-item.high {
+    background: linear-gradient(to right, #f44336, #e57373); /* Red gradient */
+}
+.task-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
