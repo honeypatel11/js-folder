@@ -1,0 +1,39 @@
+1. Simple Inheritance
+Question:
+Create a class Person with the following properties: firstName, lastName, and age. Add a method greet() that returns a greeting message using the person's full name. Then, create a subclass Employee that inherits from Person and adds an additional property jobTitle. Override the greet() method in the Employee class to include the job title in the greeting message.
+
+2. Constructor Overriding
+Question:
+Create a class Vehicle that accepts brand, model, and year in the constructor. Create a subclass Car that inherits from Vehicle and adds an additional property fuelType. Override the describe() method in Car to include the fuel type in the description.
+
+3. Method Overriding
+Question:
+Create a parent class Animal with a method makeSound(). Then, create two subclasses: Dog and Cat. Override the makeSound() method in both subclasses, so that Dog makes a barking sound and Cat makes a meowing sound. Create instances of Dog and Cat and call the makeSound() method.
+
+4. Super Constructor in Inheritance
+Question:
+Create a class Shape with a property color and a method area(). Create a subclass Rectangle that inherits from Shape and has additional properties width and height. Use super() to call the constructor of the parent class and initialize color. Implement the area() method in Rectangle to calculate the area of the rectangle.
+
+5. Multiple Levels of Inheritance
+Question:
+Create a class Person with a name property and a sayHello() method. Create a subclass Student that inherits from Person and adds a grade property. Then, create another subclass Graduate that inherits from Student and adds a degree property. Add a method showDegree() in Graduate that returns the degree of the graduate. Demonstrate the inheritance hierarchy by creating an instance of Graduate.
+
+6. Inheritance with Multiple Constructors
+Question:
+Create a parent class Product with the properties name, price, and a constructor that initializes them. Then create a subclass Electronics that adds an additional property warrantyPeriod. Implement a method describe() in both classes that outputs a description of the product, including the warranty period for electronics. Create instances of both Product and Electronics.
+
+7. Constructor with Default Values
+Question:
+Create a class Book with the properties title, author, and yearPublished. Add a constructor that accepts title and author, but gives yearPublished a default value of 2020 if not provided. Then, create a subclass EBook that inherits from Book and adds a property fileSize. Override the describe() method in EBook to include the file size.
+
+8. Instance Method and Static Method Inheritance
+Question:
+Create a class Shape with a static method getDescription() that returns a string describing a shape. Then, create a subclass Circle that inherits from Shape and has an instance method calculateArea() that calculates the area of the circle (using the radius). Test both the static method getDescription() and the instance method calculateArea().
+
+9. Using Inheritance with Super and Getter/Setter Methods
+Question:
+Create a class Person with a private property _age and a getter and setter for the age property. Create a subclass Employee that inherits from Person and adds a property employeeID. Use super() to call the parent constructor and initialize name. Demonstrate setting and getting the age property using the getter and setter methods.
+
+10. Super Method in Inheritance
+Question:
+Create a class Product with a method getInfo() that returns the name and price of the product. Create a subclass Clothing that inherits from Product and adds a property size. Override the getInfo() method in Clothing to include the size in the information and use super() to call the parent class method.
