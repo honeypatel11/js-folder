@@ -1,217 +1,82 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Management System</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <style>
-       
-        .student {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #333;
-        }
-
-        .bg {
-            background-image: url('https://png.pngtree.com/thumb_back/fh260/back_our/20190617/ourmid/pngtree-safety-production-management-system-display-board-background-material-image_124303.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            color: #7c2935;
-            text-align: center;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-            text-align: center;
-            
-        }
-
-        .form-control {
-            background: #f7f8fc;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            padding: 15px;
-            font-size: 1.1rem;
-            width: 75%;
-            transition: all 0.3s ease-in-out;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        button {
-            background-color: #9c3040;
-            color: white;
-            border: none;
-            padding: 15px 25px;
-            font-size: 1.2rem;
-            border-radius: 10px;
-            width: 100%;
-            cursor: pointer;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        button:hover {
-            background-color: #ff3b5c;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        table {
-            width: 90%;
-            margin: 40px auto;
-            border-collapse: collapse;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            background: linear-gradient(135deg, #ffffff 50%, #f7f7f7 50%);
-        }
-
-        th,
-        td {
-            padding: 18px;
-           
-            text-align: center;
-            border: 1px solid #ddd;
-            font-size: 1.1rem;
-           
-        }
-
-        th {
-            background-color: #ff6b81;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f7f8fc;
-        }
-
-        tr:hover {
-            background-color: #ffedf1;  
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    
 </head>
+<body class="">
+    <div class="container">
+        <div class="vh-100 d-flex justify-content-center ">
+            <div class="row w-100">
+                <div class="col-12  mt-5  mx-auto">
+                    <div class="box rounded shadow p-5">
+                        <div class="pt-4 text-center">
+                            <h1>🎓 Student Application Form</h1>
+                        </div>
+                        <form id="stu-form" class="ps-3 pe-3 pb-5 pt-4">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <label for="firstname" class="fw-bold">First Name:</label>
+                                    <input type="text" class="form-control" id="firstname" placeholder="Enter Your First Name">
+                                </div>
+                                <div class="col-12  mb-3">
+                                    <label for="lastname" class="fw-bold">Last Name:</label>
+                                    <input type="text" class="form-control" id="lastname" placeholder="Enter Your Last Name">
+                                </div>
+                            </div>
 
-<body class="bg">
-    <section class="student">
-        <div class="container">
-            <h2><i class="fa-solid fa-user-graduate"></i> Student Management System</h2>
 
-            <form id="student-form">
-                <div class="form-group">
-                    <input type="text" id="name" class="form-control" placeholder="Student Name">
-                </div>
-                <div class="form-group">
-                    <input type="text" id="grid" class="form-control" placeholder="Grade">
-                </div>
-                <div class="form-group">
-                    <input type="email" id="email" class="form-control" placeholder="Email ID">
-                </div>
-                <div class="form-group">
-                    <input type="text" id="course" class="form-control" placeholder="Course Name">
-                </div>
-                <button type="submit" id="submit-btn">
-                    <i class="fa-solid fa-plus"></i> Add Student
-                </button>
-            </form>
+                            <div class="mb-3 col-12 ">
+                                <label for="mail" class="fw-bold">Email Id:</label>
+                                <input type="email" id="mail" class="form-control py-2" placeholder="Enter Email Id" required>
+                            </div>
 
-            <table class="tb">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Grade</th>
-                        <th>Email</th>
-                        <th>Course</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="student-list"></tbody>
-            </table>
+                            <div class="mb-3 col-12">
+                                <label for="course-select" class="fw-bold">Select Course:</label>
+                                <select id="course-select" class="form-control">
+                                    <option value="">Choose your Course</option>
+                                    <option value="MCA">MCA</option>
+                                    <option value="BCA">BCA</option>
+                                    <option value="MBA">MBA</option>
+                                </select>
+                            </div>
+
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success" id="submit">Submit</button>
+                            </div>
+                        </form>
+
+                    </div>
+                    <h2 class="fw-bold mt-4 mb-0 text-center">Student Data</h2>
+                    <div class="table-box">
+                        <table class="table table-hover rounded table-bordered mt-3">
+                            <thead class="table">
+                                <tr>
+                                    <th class="text-uppercase fw-bold">Name</th>
+                                 
+                                    <th class="text-uppercase fw-bold">Email Id</th>
+                                    <th class="text-uppercase fw-bold">Course</th>
+                                 
+                                    <th><i class="bi bi-pencil-square"></i></th>
+                                    <th><i class="bi bi-trash"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody id="studentTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div> 
 
-    <script>
-        class StudentManager {
-            constructor() {
-                this.students = [];
-            }
-
-            addStudent(student) {
-                this.students.push(student);
-                this.render();
-            }
-
-            deleteStudent(index) {
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: 'You won\'t be able to revert this!',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#d33',
-                    cancelButtonColor: '#3085d6',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        this.students.splice(index, 1);
-                        this.render();
-                        Swal.fire('Deleted!', 'The student has been removed.', 'success');
-                    }
-                });
-            }
-
-            render() {
-                const studentList = document.getElementById('student-list');
-                studentList.innerHTML = '';
-                this.students.forEach((student, index) => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${student.name}</td>
-                        <td>${student.grid}</td>
-                        <td>${student.email}</td>
-                        <td>${student.course}</td>
-                        <td>
-                            <button class="btn-delete" onclick="manager.deleteStudent(${index})">
-                                <i class="fa-solid fa-trash"></i> 
-                            </button>
-                        </td>
-                    `;
-                    studentList.appendChild(row);
-                });
-            }
-        }
-
-        const manager = new StudentManager();
-
-        document.getElementById('student-form').addEventListener('submit', function (event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value.trim();
-            const grid = document.getElementById('grid').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const course = document.getElementById('course').value.trim();
-
-            if (!name || !grid || !email || !course) {
-                Swal.fire('Error', 'Please fill in all fields.', 'error');
-                return;
-            }
-
-            const student = { name, grid, email, course };
-            manager.addStudent(student);
-            this.reset();
-            Swal.fire('Success', 'Student added successfully!', 'success');
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script src="./index.js"></script>
 </body>
-
 </html>
